@@ -18,7 +18,19 @@ class Frog {
     constructor(readonly name: string) { };
 }
 
-type Pet = Dog | Fish | Frog;  
+type Pet = Dog | Fish;// | Frog;  
+
+function talkToPet2(pet: Pet) : string {
+  if ("sayHello" in pet){
+    return pet.sayHello()
+  }
+  else {
+    return "Fish cannot talk, sorry."
+  }
+  //if (pet instanceof Dog){
+}
+
+console.log(talkToPet2(new Dog("Pepper")));
 
 function talkToPet(pet: Pet): string {
   
