@@ -1,6 +1,6 @@
-// import * as crypto from 'crypto';
+//import * as crypto from 'crypto';
 import {TextEncoder} from "util";
-const crypto = require('crypto');
+const {subtle} = require('node:crypto').webcrypto;
 
 let nonce = 0;
 
@@ -8,7 +8,7 @@ async function generateHash(input: string): Promise<string> {
 
     const msgBuffer = new TextEncoder().encode(input);
 
-    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+    const hashBuffer = await subtle.digest('SHA-256', msgBuffer);
 
     const hashArray = Array.from(new Uint8Array(hashBuffer));
 
@@ -24,7 +24,7 @@ async function calculateHashWithNonce(nonce: number): Promise<string> {
 async function mine(): Promise<void> {
     let hash: string;
     do {
-        hash = await this.calculateHashWithNonce(++nonce);
+        hash = await calculateHashWithNonce(++nonce);
     } while (hash.startsWith('0000') === false);
 
     console.log(`Hash: ${hash}, nonce: ${nonce}`);

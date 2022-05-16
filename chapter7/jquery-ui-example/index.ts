@@ -2,6 +2,8 @@ const shapesElement = $('#shapes');
 const errorElement = $('#error');
 const infoElement = $('#info');
 
+$('#selector').autocomplete
+
 $('#selector').autocomplete({
     source: (request: { term: string }, response: ([]) => void) => {
       try {
