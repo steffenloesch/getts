@@ -14,6 +14,7 @@ class Block {
 
   private calculateHash(): string {
     const data = this.index + this.previousHash + this.timestamp + this.data;
+
     return crypto
              .createHash('sha256')
              .update(data)
