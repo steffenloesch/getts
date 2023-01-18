@@ -15,7 +15,7 @@ const PendingTransactionsPanel: React.FC<PendingTransactionsPanelProps> = ({ for
       </pre>
       <div className="pending-transactions__form">
         <button disabled={disabled}
-                onClick={() => onGenerateBlock()}
+                onClick={onGenerateBlock}
                 className="ripple"
                 type="button">GENERATE BLOCK</button>
       </div>

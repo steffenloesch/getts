@@ -97,7 +97,11 @@ const App: React.FC = () => {
         server.announceNewBlock(block);
       }
     } catch (error) {
-      console.log(error.message);
+      if (typeof error === "string") {
+        console.log(error)
+      } else if (error instanceof Error) {
+        console.log(error.message);
+      }
     }
 
     setStatus(getStatus(node));

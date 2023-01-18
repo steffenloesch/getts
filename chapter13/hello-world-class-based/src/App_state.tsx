@@ -3,13 +3,13 @@ import {State} from './state';
 
 export default class App extends Component {
 
-  state: State = {userName: 'John',
+  state: State = {userName: 'Steffen',
   imageUrl: 'https://picsum.photos/600/150'}; 
 
   styles = {margin: 40};
 
   handleClick = () => {
-    this.setState({userName: "Mary"});
+    this.setState({userName: "Mary", imageUrl: 'https://picsum.photos/500/150'});
   }
   render() {
     return (
